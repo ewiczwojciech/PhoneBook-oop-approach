@@ -28,6 +28,7 @@ public class Main {
 
 
 
+
     }
 
     public static void printContactCard(int id, String name, String surname, String phoneNumber, int age){
@@ -52,6 +53,7 @@ public class Main {
 
     //2 praca domowa
     public static String getContactRaw(int id, String name, String surname, int age, String number, boolean isHidden){
+
         String raw = id + ";" + name + ";" + surname + ";" + age + ";" + number + ";" + isHidden;
         return raw;
     }
@@ -69,7 +71,16 @@ public class Main {
     }
 
     public static void printContact(String contact){
+
         String[] infoArray1 = contact.split(";");
-        System.out.println(infoArray1[0] + "|" + infoArray1[1] + "|" + infoArray1[2] + "|" + infoArray1[3] + "|" + infoArray1[4] + "|" + infoArray1[5]);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < infoArray1.length; i++) {
+            sb.append(infoArray1[i]);
+            sb.append(";");
+        }
+
+        System.out.println(sb);
+//        System.out.println(infoArray1[0] + "|" + infoArray1[1] + "|" + infoArray1[2] + "|" + infoArray1[3] + "|" + infoArray1[4] + "|" + infoArray1[5]);
     }
 }
