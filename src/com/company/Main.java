@@ -21,7 +21,7 @@ public class Main {
 //        printContactCard(id, name, surname, phoneNumber, age);
 //        printContact(id, name, surname, Integer.parseInt(phoneNumber), age);
         String entry;
-        entry = getContact(id, name, surname, Double.valueOf(phoneNumber), age);
+        entry = getContact(id, name, surname, phoneNumber, age);
         System.out.println(entry);
 
         System.out.println(contact);
@@ -50,10 +50,11 @@ public class Main {
         System.out.println("\nOstatnio wybrany: " + (lastDial = getLastDialed(lastDialed)));
 
         int chooseDial;
-        System.out.printf("Numer na wybranym miejscu to %d", (getLastDialed(lastDialed, 3)));
+        System.out.printf("\nNumer na wybranym miejscu to %d", (getLastDialed(lastDialed, 3)));
 
-        System.out.println("\nUsuwam z wybieranych" + (removeLastDialed(lastDialed, 9)));
-        System.out.println("\ntablica po usuwaniu:");
+        System.out.println("\n\nUsuwam z wybieranych...");
+        removeLastDialed(lastDialed, 9);
+        System.out.println("tablica po usuwaniu:");
 
         for (int i = 0; i<lastDialed.length; i++){
             System.out.println(lastDialed[i]);
@@ -77,7 +78,7 @@ public class Main {
 //        System.out.println("");
 //    }
 
-    public static String getContact(int id, String name, String surname, Double phoneNumber, int age){
+    public static String getContact(int id, String name, String surname, String phoneNumber, int age){
         if(name.equals("")){
             name = "NIEZNANY";
         }
@@ -86,10 +87,10 @@ public class Main {
         }
         if(phoneNumber.toString().length() != 9){
             String pn = "000000000";
-            phoneNumber = Double.valueOf(pn);
+            phoneNumber = pn;
         }
 
-        return String.format("%d | %s | %s | %f | %d", id, name, surname, phoneNumber, age);
+        return String.format("%d | %s | %s | %s | %d", id, name, surname, phoneNumber, age);
     }
 
     //2 praca domowa
