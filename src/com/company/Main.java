@@ -15,8 +15,9 @@ public class Main {
         String phoneNumber = "453000";
         int age = 20;
         boolean isHidden = false;
+        NumberType numberType = NumberType.MOBI;
 
-        String contact = getContactRaw(id, name, surname, age, phoneNumber,isHidden);
+        String contact = getContactRaw(id, name, surname, age, phoneNumber,isHidden, numberType);
 
 //        printContactCard(id, name, surname, phoneNumber, age);
 //        printContact(id, name, surname, Integer.parseInt(phoneNumber), age);
@@ -94,7 +95,7 @@ public class Main {
     }
 
     //2 praca domowa
-    public static String getContactRaw(int id, String name, String surname, int age, String number, boolean isHidden){
+    public static String getContactRaw(int id, String name, String surname, int age, String number, boolean isHidden, NumberType numberType){
 
         if(name.equals("")){
             name = "NIEZNANY";
@@ -106,7 +107,7 @@ public class Main {
             number = "000000000";
         }
 
-        String raw = id + ";" + name + ";" + surname + ";" + age + ";" + number + ";" + isHidden;
+        String raw = id + ";" + name + ";" + surname + ";" + age + ";" + number + ";" + isHidden + ";" + numberType.getFullName();
         return raw;
     }
 
@@ -119,6 +120,7 @@ public class Main {
         System.out.println("Wiek: " + infoArray[3]);
         System.out.println("Numer telefonu: " + infoArray[4]);
         System.out.println("isHidden: " + infoArray[5]);
+        System.out.println("Typ numeru: " + infoArray[6]);
         System.out.println("");
     }
 
@@ -157,6 +159,10 @@ public class Main {
         }
             return tab[index-1];
     }
+
+//    PRACA DOMOWA ENUM I PĘTLE
+
+
 
     public static int removeLastDialed(int[] tab, int index){
         if(index < 0 || index > tab.length){
