@@ -1,6 +1,8 @@
 package com.company;
 
-public class PhoneContact {
+import java.util.Arrays;
+
+public abstract class PhoneContact {
 
 	private int id;
 	private String name;
@@ -11,7 +13,7 @@ public class PhoneContact {
 
 	public PhoneContact(int id, String name, String surname, String phoneNumber, int age, boolean isHidden) {
 
-		System.out.println("\nTworzę obiekt typu phone number...");
+//		System.out.println("\nTworzę obiekt typu phone number...");
 
 		if(name.equals("")){
 			name = "NIEZNANY";
@@ -82,7 +84,46 @@ public class PhoneContact {
 		isHidden = hidden;
 	}
 
-	public void printPhoneContact(){
-		System.out.println("\nId: " + id + "\nImię: " + name + "\nNazwisko: " + surname + "\nNumer telefonu: " + phoneNumber + "\nWiek: " + age + "\nUkryty?: " + isHidden);
+
+	public String toString(){
+		return "Id: " + id + "; Imię: " + name + "; Nazwisko: " + surname + "; Numer telefonu: " + phoneNumber + "; Wiek: " + age + "; Ukryty?: " + isHidden;
+	}
+
+	public String getContact(){
+
+		return String.format("%d | %s | %s | %s | %d", this.id, this.name, this.surname, this.phoneNumber, this.age);
+	}
+
+	public String getContactRaw(){
+
+		String raw = this.id + ";" + this.name + ";" + this.surname + ";" + this.phoneNumber + ";" + this.age + ";" + this.isHidden + ";";
+		return raw;
+	}
+
+	public void printContactCard(){
+//		String[] infoArray = contact.split(";");
+
+		System.out.println("Id: " + this.id);
+		System.out.println("Imię: " + this.name);
+		System.out.println("Nazwisko: " + this.surname);
+		System.out.println("Wiek: " + this.age);
+		System.out.println("Numer telefonu: " + this.phoneNumber);
+		System.out.println("isHidden: " + this.isHidden);
+//		System.out.println("Typ numeru: " + infoArray[6]);
+		System.out.println("");
+	}
+//
+	public void printContact(){
+
+//		String[] infoArray1 = contact.split(";");
+//		StringBuilder sb = new StringBuilder();
+//		for (int i = 0; i < infoArray1.length; i++) {
+//			sb.append(infoArray1[i]);
+//			sb.append(";");
+//		}
+//
+		System.out.printf("%d | %s | %s | %s | %d", this.id, this.name, this.surname, this.phoneNumber, this.age);
+
+
 	}
 }
